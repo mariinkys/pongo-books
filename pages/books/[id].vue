@@ -2,35 +2,47 @@
    <div v-if="!loading">
       <CustomPageTitle :text="book.title === '' ? 'Editing Book' : book.title" />
       <div class="max-w-5xl m-auto">
-         <div class="flex justify-end my-5">
+         <div class="flex justify-end my-5 gap-2">
+            <!--3mb file-size?-->
+            <FileUpload mode="basic" customUpload accept="image/*" :maxFileSize="3000000" @uploader="onUpload"
+               choose-label="Change Book Cover" show-upload-button />
             <ToggleButton v-model="editing" on-label="Editing" off-label="Not editing" />
          </div>
-         <div v-if="book.coverPath">
-            <img :src="'/bookcovers/' + book.coverPath" alt="Book Cover" width="150" height="200" />
-         </div>
+
          <form @submit.prevent="onSubmit" class="flex flex-col gap-8">
-            <div class="flex gap-2">
-               <span class="p-float-label grow">
-                  <InputText id="title" v-model="book.title" class="w-full" required autocomplete="off"
-                     aria-autocomplete="none" :disabled="!editing" />
-                  <label for="title">Title</label>
-               </span>
-               <!--3mb file-size?-->
-               <FileUpload mode="basic" customUpload accept="image/*" :maxFileSize="3000000" @uploader="onUpload"
-                  :disabled="!editing" choose-label="Change Book Cover" show-upload-button />
+            <div class="flex gap-3">
+               <div v-if="book.coverPath" class="float-left">
+                  <img :src="'/bookcovers/' + book.coverPath" alt="Book Cover" width="150" height="200"
+                     class="rounded-lg shadow-lg" />
+               </div>
+               <div v-else class="float-left">
+                  <img src="/fallbackcover.png" alt="Fallback Book Cover" width="150" height="200"
+                     class="rounded-lg shadow-lg" />
+               </div>
+
+               <div class="flex-grow flex flex-col gap-8">
+                  <span class="p-float-label">
+                     <InputText id="title" v-model="book.title" class="w-full" required autocomplete="off"
+                        aria-autocomplete="none" :disabled="!editing" />
+                     <label for="title">Title</label>
+                  </span>
+
+
+                  <span class="p-float-label">
+                     <InputNumber id="pages" v-model="book.pages" class="w-full" autocomplete="off"
+                        aria-autocomplete="none" :disabled="!editing" />
+                     <label for="pages">Pages</label>
+                  </span>
+
+                  <span class="p-float-label">
+                     <InputText id="publicationYear" v-model="book.publicationYear" class="w-full" autocomplete="off"
+                        aria-autocomplete="none" :disabled="!editing" />
+                     <label for="publicationYear">Publication Year</label>
+                  </span>
+               </div>
             </div>
 
-            <span class="p-float-label">
-               <InputNumber id="pages" v-model="book.pages" class="w-full" autocomplete="off" aria-autocomplete="none"
-                  :disabled="!editing" />
-               <label for="pages">Pages</label>
-            </span>
 
-            <span class="p-float-label">
-               <InputText id="publicationYear" v-model="book.publicationYear" class="w-full" autocomplete="off"
-                  aria-autocomplete="none" :disabled="!editing" />
-               <label for="publicationYear">Publication Year</label>
-            </span>
 
             <span class="p-float-label">
                <InputText id="isbn" v-model="book.isbn" class="w-full" autocomplete="off" aria-autocomplete="none"
@@ -168,10 +180,11 @@ export default {
                await useFetch('/api/book/uploadcover', {
                   method: 'post',
                   body: formData,
-               }).then(res => {
+               }).then(async res => {
                   if (res.error.value) {
                      this.$toast.add({ severity: 'error', summary: 'Error', detail: 'Something has gone wrong!', life: 3000 });
                   } else {
+                     window.location.reload()
                      this.$toast.add({ severity: 'success', summary: 'Success', detail: 'Cover Uploaded', life: 3000 });
                   }
                }, error => {
