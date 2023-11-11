@@ -1,75 +1,13 @@
-# Nuxt 3 Minimal Starter
+# Pongo Books
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+My first Nuxt project. A simple Nuxt application to manage your book collection, give ratings and such. 
 
-## Setup
+## Tech Stack
 
-Make sure to install the dependencies:
+- [Nuxt](https://nuxt.com/)
+- [Prisma](https://www.prisma.io/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [PrimeVue](https://primevue.org/)
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+For authentication I'm using
+- [Sidebase/nuxt-auth](https://sidebase.io/nuxt-auth/getting-started)
