@@ -12,8 +12,11 @@
                <Button icon="pi pi-sign-out" severity="primary" class="mx-1" aria-label="User" @click="signOut()" />
             </div>
             <div v-else>
+               <NuxtLink to="/register" style="color: inherit; text-decoration: none;">
+                  <Button label="Register" class="mx-1" />
+               </NuxtLink>
                <NuxtLink to="/login" style="color: inherit; text-decoration: none;">
-                  <Button label="LogIn" />
+                  <Button label="LogIn" class="mx-1" />
                </NuxtLink>
             </div>
          </div>
