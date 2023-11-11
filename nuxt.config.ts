@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  meta: {
+    title: 'Pongo Books',
+  },
   modules: ['@sidebase/nuxt-auth', 'nuxt-primevue'],
   css: ['primevue/resources/themes/lara-dark-teal/theme.css', '~/assets/css/main.css', 'primeicons/primeicons.css'],
   postcss: {

@@ -1,5 +1,9 @@
 <template>
   <div>
+
+    <Head>
+      <Title>Pongo Books</Title>
+    </Head>
     <NuxtLayout>
       <Header :logged-in="loggedIn" />
       <div class="p-5">
