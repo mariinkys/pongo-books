@@ -13,15 +13,14 @@ export default defineEventHandler(async (event) => {
    if (!isNaN(userId) && userId != -1) {
       try {
          const files = await readMultipartFormData(event);
-
-
+         
          if (!files || files.length === 0) {
             throw createError({
                statusCode: 400,
                statusMessage: 'Image Not Found',
             });
          }
-
+         
          const bId = files[0].data.toString('ascii');
 
          if (files[1].name === 'file') {
