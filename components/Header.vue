@@ -9,7 +9,8 @@
                <NuxtLink to="/books/create" style="color: inherit; text-decoration: none;" class="mx-1">
                   <Button label="New Book" />
                </NuxtLink>
-               <Button icon="pi pi-sign-out" severity="primary" class="mx-1" aria-label="User" @click="signOut()" />
+               <Button icon="pi pi-sign-out" severity="primary" class="mx-1" aria-label="User"
+                  @click="signOut({ callbackUrl: '/' })" />
             </div>
             <div v-else>
                <NuxtLink to="/register" style="color: inherit; text-decoration: none;">
