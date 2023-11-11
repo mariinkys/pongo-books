@@ -11,11 +11,11 @@
 
          <form @submit.prevent="onSubmit" class="flex flex-col gap-8">
             <div class="flex gap-3">
-               <div v-if="book.coverPath" class="float-left">
+               <div v-if="book.coverPath">
                   <img :src="'/bookcovers/' + book.coverPath" alt="Book Cover" width="150" height="200"
                      class="rounded-lg shadow-lg" />
                </div>
-               <div v-else class="float-left">
+               <div v-else>
                   <img src="/fallbackcover.png" alt="Fallback Book Cover" width="150" height="200"
                      class="rounded-lg shadow-lg" />
                </div>
