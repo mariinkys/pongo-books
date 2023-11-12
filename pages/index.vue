@@ -1,5 +1,5 @@
 <template>
-   <CustomPageTitle text="Index" />
+   <CustomPageTitle text="Welcome to Pongo Books" />
 </template>
 
 <script setup lang="ts">

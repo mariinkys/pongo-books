@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   meta: {
     title: 'Pongo Books',
   },
-  modules: ['@sidebase/nuxt-auth', 'nuxt-primevue'],
+  modules: ['@nuxtjs/tailwindcss', '@sidebase/nuxt-auth', 'nuxt-primevue'],
   css: ['primevue/resources/themes/lara-dark-teal/theme.css', '~/assets/css/main.css', 'primeicons/primeicons.css'],
   postcss: {
     plugins: {
@@ -38,6 +38,7 @@ export default defineNuxtConfig({
   },
   auth: {
     globalAppMiddleware: true,
+    //@ts-ignore
     origin: 'http://localhost:3000',
   }
 })

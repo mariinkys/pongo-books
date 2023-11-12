@@ -11,12 +11,10 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "@sidebase/nuxt-auth": "^0.6.0-rc.1",
-    "autoprefixer": "^10.4.16",
     "nuxt": "^3.8.1",
     "nuxt-primevue": "^0.2.0",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
