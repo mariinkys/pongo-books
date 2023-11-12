@@ -35,18 +35,20 @@
             </span>
          </div>
 
-         <div class="flex gap-2 justify-center">
-            <ToggleButton v-model="book.reRead" on-label="Read more than once" off-label="Not read more than once" />
-            <span class="p-float-label" v-if="book.reRead">
-               <InputNumber id="timesRead" v-model="book.timesRead" class="w-full" autocomplete="off"
-                  aria-autocomplete="none" />
-               <label for="timesRead">Times Read</label>
-            </span>
-         </div>
+         <div class="flex gap-2 justify-between">
+            <div class="flex gap-2 justify-center">
+               <ToggleButton v-model="book.reRead" on-label="Read more than once" off-label="Not read more than once" />
+               <span class="p-float-label" v-if="book.reRead">
+                  <InputNumber id="timesRead" v-model="book.timesRead" class="w-full" autocomplete="off"
+                     aria-autocomplete="none" />
+                  <label for="timesRead">Times Read</label>
+               </span>
+            </div>
 
-         <div class="self-center text-center">
-            <p class="m-0 p-1">General Score</p>
-            <Rating v-model="book.generalScore" :cancel="false" :stars="10" />
+            <div class="self-center text-center">
+               <p class="m-0 p-1">General Score</p>
+               <Rating v-model="book.generalScore" :cancel="false" :stars="10" />
+            </div>
          </div>
 
          <span class="p-float-label">
